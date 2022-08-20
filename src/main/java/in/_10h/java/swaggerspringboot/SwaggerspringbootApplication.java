@@ -1,4 +1,4 @@
-package in.h.java.swaggerspringboot;
+package in._10h.java.swaggerspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
