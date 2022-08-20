@@ -54,7 +54,7 @@
 			<artifactId>validation-api</artifactId>
 			<version>2.0.1.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.openapitools</groupId>
 			<artifactId>jackson-databind-nullable</artifactId>
@@ -75,6 +75,14 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-spring-webflux</artifactId>
 			<version>3.0.0</version>
+		</dependency>
+
+		<!-- JSR305 Annotation used by java generator generated codes -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305 -->
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>3.0.2</version>
 		</dependency>
 
 	</dependencies>
@@ -99,6 +107,7 @@
 				<version>6.0.1</version>
 				<executions>
 					<execution>
+						<id>gen-server-stub</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -109,6 +118,12 @@
 							<generatorName>spring</generatorName>
 							<apiPackage>io.tej.SwaggerCodgen.api</apiPackage>
 							<modelPackage>io.tej.SwaggerCodgen.model</modelPackage>
+							<generateApis>true</generateApis>
+							<generateModels>true</generateModels>
+							<generateApiTests>false</generateApiTests>
+							<generateModelTests>false</generateModelTests>
+							<generateApiDocumentation>false</generateApiDocumentation>
+							<generateModelDocumentation>false</generateModelDocumentation>
 							<supportingFilesToGenerate>
 								ApiUtil.java
 							</supportingFilesToGenerate>
@@ -116,19 +131,48 @@
 								<sourceFolder>src/main/java/</sourceFolder>
 								<delegatePattern>false</delegatePattern>
 								<interfaceOnly>true</interfaceOnly>
-								<apiPackage>in._10h.java.swaggerspringboot</apiPackage>
-								<modelPackage>in._10h.java.swaggerspringboot</modelPackage>
+								<apiPackage>in._10h.java.swaggerspringboot.server.api</apiPackage>
+								<modelPackage>in._10h.java.swaggerspringboot.server.model</modelPackage>
+								<invokerPackage>in._10h.java.swaggerspringboot.server.invoker</invokerPackage>
 								<library>spring-boot</library>
 								<generateSupportingFiles>true</generateSupportingFiles>
-								<generateApis>true</generateApis>
-								<generateModels>true</generateModels>
-								<generateApiTests>false</generateApiTests>
-								<generateModelTests>false</generateModelTests>
-								<generateApiDocumentation>false</generateApiDocumentation>
-								<generateModelDocumentation>false</generateModelDocumentation>
-								<basePackage>in._10h.java.swaggerspringboot</basePackage>
+<!--								<generateApis>true</generateApis>-->
+<!--								<generateModels>true</generateModels>-->
+<!--								<generateApiTests>false</generateApiTests>-->
+<!--								<generateModelTests>false</generateModelTests>-->
+<!--								<generateApiDocumentation>false</generateApiDocumentation>-->
+<!--								<generateModelDocumentation>false</generateModelDocumentation>-->
+								<basePackage>in._10h.java.swaggerspringboot.server</basePackage>
 								<reactive>true</reactive>
 								<useSpringController>true</useSpringController>
+							</configOptions>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gen-client</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>
+								${project.basedir}/src/main/resources/swaggerspringboot.yaml
+							</inputSpec>
+							<generatorName>java</generatorName>
+							<apiPackage>io.tej.SwaggerCodgen.api</apiPackage>
+							<modelPackage>io.tej.SwaggerCodgen.model</modelPackage>
+							<generateApis>true</generateApis>
+							<generateModels>true</generateModels>
+							<generateApiTests>false</generateApiTests>
+							<generateModelTests>false</generateModelTests>
+							<generateApiDocumentation>false</generateApiDocumentation>
+							<generateModelDocumentation>false</generateModelDocumentation>
+							<configOptions>
+								<sourceFolder>src/main/java/</sourceFolder>
+								<apiPackage>in._10h.java.swaggerspringboot.client.api</apiPackage>
+								<modelPackage>in._10h.java.swaggerspringboot.client.model</modelPackage>
+								<invokerPackage>in._10h.java.swaggerspringboot.client.invoker</invokerPackage>
+								<basePackage>in._10h.java.swaggerspringboot.client</basePackage>
+								<library>webclient</library>
 							</configOptions>
 						</configuration>
 					</execution>

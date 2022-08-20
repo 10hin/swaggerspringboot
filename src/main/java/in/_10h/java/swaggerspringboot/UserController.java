@@ -1,5 +1,10 @@
 package in._10h.java.swaggerspringboot;
 
+import in._10h.java.swaggerspringboot.server.api.UserApi;
+import in._10h.java.swaggerspringboot.server.api.UsersApi;
+import in._10h.java.swaggerspringboot.server.model.User;
+import in._10h.java.swaggerspringboot.server.model.UserDraft;
+import in._10h.java.swaggerspringboot.server.model.UserPatch;
 import io.swagger.models.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

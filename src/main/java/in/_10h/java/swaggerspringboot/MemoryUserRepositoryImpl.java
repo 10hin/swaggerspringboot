@@ -1,5 +1,6 @@
 package in._10h.java.swaggerspringboot;
 
+import in._10h.java.swaggerspringboot.server.model.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
